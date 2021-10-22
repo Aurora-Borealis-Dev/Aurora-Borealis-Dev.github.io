@@ -1,0 +1,145 @@
+*{
+	margin: 0;
+	font-family: 'Quicksand', sans-serif;
+	color: white;
+}
+
+body{
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 80%), url(images/aurora.jpeg);
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	max-height: 100vh;
+	padding: 0 40px;
+	display: flex;
+	flex-direction: column;
+}
+
+.logo{
+	width: 200px;
+	height: auto;
+}
+
+main{
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.headings{
+	text-align: center;
+}
+
+.title{
+	font-size: 68px;
+}
+
+.subtitle{
+	margin-top: 20px;
+	padding: 0 40px;
+}
+
+.about-us{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 100px;
+}
+
+.about-us .block{
+	max-width: 350px;
+	padding: 0 40px;
+	text-align: center;
+}
+
+.about-us .block img{
+	width: 100px;
+	height: 100px;
+}
+
+.about-us .block h3{
+	text-transform: uppercase;
+	margin-top: 20px;
+	border-bottom: 1px solid;
+    padding-bottom: 10px
+}
+
+.about-us .block p{
+	margin-top: 20px;
+}
+
+
+footer{
+	justify-content: center;
+	display: flex;
+    flex: 1;
+    align-items: flex-end;
+    padding: 40px 0;
+    font-size: 20px;
+	color: white;
+}
+
+footer a{
+	text-decoration: none;
+	color: white;
+}
+
+footer a:hover{
+	color: #078b62;
+}
+
+footer span{
+	padding: 0 20px;
+}
+
+
+@media (max-width: 1024px){
+
+	.title{
+		font-size: 48px;
+	}
+
+	.subtitle{
+		padding: 0;
+	}
+
+	.about-us .block{
+		padding: 0 20px;
+	}
+
+
+}
+
+@media (max-width: 767px){
+
+	body{
+		height: unset;
+		max-height: unset;
+		padding: 0 16px;
+		    background-size: cover; 
+
+	}
+
+	.about-us{
+		flex-direction: column;
+		margin-top: 0;
+		padding-bottom: 50px;
+	}
+	
+	.about-us .block{
+		width: 100%;
+		max-width: 90%;
+		margin: 0 auto;
+		padding: 0;
+		margin-top: 40px;
+	}
+
+	footer{
+		font-size: initial;
+		background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) );
+	}
+
+	footer span{
+		padding: 0 5px;
+	}
+}
