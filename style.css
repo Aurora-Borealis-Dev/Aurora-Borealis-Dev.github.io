@@ -16,10 +16,6 @@ body{
 	flex-direction: column;
 }
 
-body:before{
-	content: url();
-}
-
 .logo{
 	width: 200px;
 	height: auto;
