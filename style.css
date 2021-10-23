@@ -5,7 +5,7 @@
 }
 
 body{
-	background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 80%), url(aurora.jpeg);
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/aurora.jpeg);
 	background-position: bottom;
 	background-repeat: no-repeat;
 	background-size: cover;
