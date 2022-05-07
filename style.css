@@ -9,8 +9,8 @@ body{
 	background-position: bottom;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 100vh;
-	max-height: 100vh;
+	min-height: 100vh;
+	max-height: fit-content;
 	padding: 0 40px;
 	display: flex;
 	flex-direction: column;
