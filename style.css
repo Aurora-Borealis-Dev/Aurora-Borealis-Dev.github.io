@@ -16,6 +16,30 @@ body{
 	flex-direction: column;
 }
 
+header{
+	display: flex;
+	justify-content: space-between;
+}
+
+header .header-button{
+	display: flex;
+	align-items: center;
+}
+
+header .header-button a{
+	background-color: rgba(59,129,97,0.75);
+	padding: 10px 25px;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 10px;
+	color: #f5f5f5	;
+}
+
+header .header-button a:hover{
+	background: #3b8161;
+    transition: all 0.2s ease-in;
+}
+
 .logo{
 	width: 200px;
 	height: auto;
@@ -101,7 +125,6 @@ footer a:hover::before{
 	transform-origin: left;
 	transform: scaleX(1);
 	transition: transform 1s ease;
-
 }
 
 footer span{
@@ -122,8 +145,6 @@ footer span{
 	.about-us .block{
 		padding: 0 20px;
 	}
-
-
 }
 
 @media (max-width: 767px){
@@ -132,8 +153,15 @@ footer span{
 		height: unset;
 		max-height: unset;
 		padding: 0 16px;
-		    background-size: cover; 
+		background-size: cover; 
+	}
 
+	.logo{
+		width: 150px;
+	}
+
+	header .header-button a{
+		padding: 10px;
 	}
 
 	.about-us{
