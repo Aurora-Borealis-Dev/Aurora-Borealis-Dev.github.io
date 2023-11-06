@@ -16,6 +16,31 @@ body{
 	flex-direction: column;
 }
 
+header{
+	display: flex;
+	justify-content: space-between;
+}
+
+header .header-button{
+	display: flex;
+	align-items: center;
+}
+
+header .header-button a{
+	background-color: #3b8161;
+	padding: 10px 50px;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 10px;
+	color: #f5f5f5	;
+}
+
+header .header-button a:hover{
+	background: #90dfaa;
+	color: #3d3939	;
+		transition: all 0.2s ease-in;
+}
+
 .logo{
 	width: 200px;
 	height: auto;
@@ -43,7 +68,7 @@ main{
 
 .about-us{
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	margin-top: 100px;
 }
 
@@ -101,7 +126,6 @@ footer a:hover::before{
 	transform-origin: left;
 	transform: scaleX(1);
 	transition: transform 1s ease;
-
 }
 
 footer span{
@@ -122,8 +146,6 @@ footer span{
 	.about-us .block{
 		padding: 0 20px;
 	}
-
-
 }
 
 @media (max-width: 767px){
@@ -132,8 +154,15 @@ footer span{
 		height: unset;
 		max-height: unset;
 		padding: 0 16px;
-		    background-size: cover; 
+		background-size: cover; 
+	}
 
+	.logo{
+		width: 150px;
+	}
+
+	header .header-button a{
+		padding: 10px;
 	}
 
 	.about-us{
