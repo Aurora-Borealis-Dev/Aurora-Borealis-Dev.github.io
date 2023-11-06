@@ -27,8 +27,8 @@ header .header-button{
 }
 
 header .header-button a{
-	background-color: #3b8161;
-	padding: 10px 50px;
+	background-color: rgba(59,129,97,0.75);
+	padding: 10px 25px;
 	text-decoration: none;
 	font-weight: bold;
 	border-radius: 10px;
@@ -36,9 +36,8 @@ header .header-button a{
 }
 
 header .header-button a:hover{
-	background: #90dfaa;
-	color: #3d3939	;
-		transition: all 0.2s ease-in;
+	background: #3b8161;
+    transition: all 0.2s ease-in;
 }
 
 .logo{
