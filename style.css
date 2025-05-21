@@ -5,7 +5,7 @@
 }
 
 body{
-	background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2) 80%), url(images/aurora.jpeg);
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2) 80%), url(images/aurora-bg.avif);
 	background-position: bottom;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -63,6 +63,7 @@ main{
 	margin-top: 20px;
 	padding: 0 40px;
 	font-size: 18px;
+	font-weight: normal;
 }
 
 .about-us{
