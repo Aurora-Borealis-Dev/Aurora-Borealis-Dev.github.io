@@ -1511,3 +1511,52 @@ img {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ============================================
+   Calendly loading spinner
+   Replaces Calendly's bouncing dots with an aurora ring. The first selector covers
+   the moment before widget.js is loaded (container still empty), the second its own spinner.
+   ============================================ */
+.calendly-inline-widget:not(:has(*))::before,
+.calendly-inline-widget .calendly-spinner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin: -1.5rem 0 0 -1.5rem;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0%, var(--aurora-cyan), var(--aurora-green), var(--aurora-violet), var(--aurora-pink), transparent 100%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.5));
+  animation: calendly-ring 1.1s linear infinite;
+}
+
+.calendly-inline-widget {
+  position: relative;
+}
+
+.calendly-inline-widget .calendly-spinner {
+  z-index: 0;
+}
+
+.calendly-inline-widget .calendly-spinner > div {
+  display: none;
+}
+
+.calendly-inline-widget[data-loaded] .calendly-spinner {
+  display: none;
+}
+
+@keyframes calendly-ring {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calendly-inline-widget:not(:has(*))::before,
+  .calendly-inline-widget .calendly-spinner::before {
+    animation-duration: 3s;
+  }
+}

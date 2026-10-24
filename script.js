@@ -31,6 +31,43 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // ============================================
+  // Calendly: load only when the booking section is near the viewport.
+  // Loading it on page load made the iframe grab focus and scroll
+  // phones down to it on every refresh.
+  // ============================================
+  const calendlyWidget = document.querySelector('.calendly-inline-widget');
+  
+  if (calendlyWidget) {
+    // widget.js calls scrollIntoView() on its container whenever the iframe reports
+    // a new height and the container is above the viewport, which yanks the page
+    // down to the booking section. Make that a no-op on this element.
+    calendlyWidget.scrollIntoView = () => {};
+    
+    // Calendly never removes its own spinner, so flag the container once the iframe has
+    // loaded and let CSS hide the spinner.
+    new MutationObserver((mutations, observer) => {
+      const iframe = calendlyWidget.querySelector('iframe');
+      if (!iframe) return;
+      observer.disconnect();
+      iframe.addEventListener('load', () => calendlyWidget.setAttribute('data-loaded', ''));
+    }).observe(calendlyWidget, { childList: true });
+    
+    const loadCalendly = () => {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+    };
+    
+    new IntersectionObserver((entries, observer) => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        observer.disconnect();
+        loadCalendly();
+      }
+    }, { rootMargin: '300px 0px' }).observe(calendlyWidget);
+  }
+  
+  // ============================================
   // Years in business (founded 2021)
   // ============================================
   const FOUNDED_YEAR = 2021;
