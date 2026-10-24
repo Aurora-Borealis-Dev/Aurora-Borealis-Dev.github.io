@@ -31,6 +31,33 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // ============================================
+  // Years in business (founded 2021)
+  // ============================================
+  const FOUNDED_YEAR = 2021;
+  const yearsInBusiness = new Date().getFullYear() - FOUNDED_YEAR;
+  const numberWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
+    'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'];
+  
+  document.querySelectorAll('[data-years]').forEach(el => {
+    const asWord = el.dataset.years === 'word' && numberWords[yearsInBusiness];
+    el.textContent = asWord || yearsInBusiness;
+  });
+  
+  // ============================================
+  // Hero aurora: glow follows the pointer
+  // ============================================
+  const hero = document.querySelector('.hero');
+  const auroraBg = document.querySelector('.aurora-bg');
+  
+  if (hero && auroraBg) {
+    hero.addEventListener('pointermove', function(e) {
+      const rect = hero.getBoundingClientRect();
+      auroraBg.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+      auroraBg.style.setProperty('--my', `${e.clientY - rect.top}px`);
+    });
+  }
+  
+  // ============================================
   // Smooth Scroll for Anchor Links
   // ============================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
