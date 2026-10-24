@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileMenuBtn.addEventListener('click', function() {
       this.classList.toggle('active');
       mobileMenu.classList.toggle('active');
+      this.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
       
       // Prevent body scroll when menu is open
       document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
@@ -25,8 +26,20 @@ document.addEventListener('DOMContentLoaded', function() {
       link.addEventListener('click', function() {
         mobileMenuBtn.classList.remove('active');
         mobileMenu.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
+    });
+    
+    // Close menu with Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        mobileMenuBtn.focus();
+      }
     });
   }
   
@@ -90,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navHeader.style.background = window.scrollY > 50 ? 'var(--nav-bg-scrolled)' : '';
   }
   
-  window.addEventListener('scroll', updateNavbar);
+  window.addEventListener('scroll', updateNavbar, { passive: true });
   updateNavbar();
   
   // ============================================
@@ -278,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  window.addEventListener('scroll', highlightNavLink);
+  window.addEventListener('scroll', highlightNavLink, { passive: true });
   
   // ============================================
   // Service Card Hover Effects
@@ -307,8 +320,14 @@ document.addEventListener('DOMContentLoaded', function() {
 const track = document.querySelector('.ticker-track');
 const ticker = document.querySelector('.client-ticker');
 
-// 1. Dupliraj sadržaj samo jednom
-track.innerHTML += track.innerHTML;
+// 1. Dupliraj sadržaj samo jednom (kopije su sakrivene od čitača ekrana)
+if (track && ticker) {
+const originals = Array.from(track.children);
+originals.forEach(item => {
+  const clone = item.cloneNode(true);
+  clone.setAttribute('aria-hidden', 'true');
+  track.appendChild(clone);
+});
 
 // 2. Izračunaj koliko nam vremena treba (dužina / brzina)
 // Što je veći broj 'speedFactor', to sporije ide
@@ -321,3 +340,4 @@ track.style.animation = `scrollInfinite ${duration}s linear infinite`;
 // Pauza na hover
 ticker.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
 ticker.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+}

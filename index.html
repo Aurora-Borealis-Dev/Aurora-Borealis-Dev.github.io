@@ -11,9 +11,29 @@
   <meta property="og:title" content="Aurora Borealis Dev | Empowering Visionaries Globally">
   <meta property="og:description" content="World-class Web, and SEO solutions for a global clientele.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://auroraborealis.dev/">
+  <meta property="og:site_name" content="Aurora Borealis Dev">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Aurora Borealis Dev | Empowering Visionaries Globally">
+  <meta name="twitter:description" content="World-class Web, and SEO solutions for a global clientele.">
+  <meta name="theme-color" content="#0a0e1a">
+  <link rel="canonical" href="https://auroraborealis.dev/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aurora Borealis Dev",
+    "url": "https://auroraborealis.dev/",
+    "email": "info@auroraborealis.dev",
+    "foundingDate": "2021-01",
+    "description": "Web development, SEO and online marketing for a global clientele.",
+    "address": {"@type": "PostalAddress", "addressLocality": "Sarajevo", "addressCountry": "BA"},
+    "sameAs": ["https://www.linkedin.com/in/edimb/"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" href="images/aurora-borealis-dev-favicon.svg" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="images/aurora-borealis-dev-favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
     // Apply saved theme before first paint to avoid a flash
@@ -26,13 +46,14 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <!-- Navigation -->
   <header class="nav-header">
     <nav class="nav-container">
-      <a href="#" class="nav-logo">
+      <a href="#" class="nav-logo" aria-label="Aurora Borealis Dev, back to top">
         <div class="logo-icon">
           <svg viewBox="51.79636 350.8056 1066.53414 468.52560000000005" xmlns="http://www.w3.org/2000/svg"
-            data-name="Layer 1" id="Layer_1" style="max-height: 500px" width="1066.53414" height="468.52560000000005">
+            data-name="Layer 1" aria-hidden="true" focusable="false" style="max-height: 500px" width="1066.53414" height="468.52560000000005">
             <defs>
               <style>
                 .cls-1 {
@@ -144,7 +165,7 @@
           </svg>
         </button>
 
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span>
           <span></span>
           <span></span>
@@ -153,7 +174,7 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobile-menu">
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Work</a></li>
@@ -164,6 +185,7 @@
     </div>
   </header>
 
+  <main id="main">
   <!-- Hero Section -->
   <section class="hero">
     <div class="aurora-bg">
@@ -236,27 +258,27 @@
         <h3>Global Reach</h3>
         <div class="country-flags">
           <div class="country">
-            <span class="flag">🇺🇸</span>
+            <span class="flag" aria-hidden="true">🇺🇸</span>
             <span>USA</span>
           </div>
           <div class="country">
-            <span class="flag">🇨🇭</span>
+            <span class="flag" aria-hidden="true">🇨🇭</span>
             <span>Switzerland</span>
           </div>
           <div class="country">
-            <span class="flag">🇳🇱</span>
+            <span class="flag" aria-hidden="true">🇳🇱</span>
             <span>Netherlands</span>
           </div>
           <div class="country">
-            <span class="flag">🇦🇱</span>
+            <span class="flag" aria-hidden="true">🇦🇱</span>
             <span>Albania</span>
           </div>
           <div class="country">
-            <span class="flag">🇭🇷</span>
+            <span class="flag" aria-hidden="true">🇭🇷</span>
             <span>Croatia</span>
           </div>
             <div class="country">
-                <span class="flag">🇧🇦</span>
+                <span class="flag" aria-hidden="true">🇧🇦</span>
                 <span>Bosnia and Herzegovina</span>
             </div>
         </div>
@@ -291,7 +313,7 @@
             <li>CMS Development</li>
             <li>API Integration</li>
           </ul>
-          <a href="#contact" class="service-link">
+          <a href="#contact" aria-label="Learn more about Web Development" class="service-link">
             Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -317,7 +339,7 @@
             <li>Content Strategy</li>
             <li>Link Building</li>
           </ul>
-          <a href="https://seo.auroraborealis.dev/" target="_blank" class="service-link">
+          <a href="https://seo.auroraborealis.dev/" target="_blank" rel="noopener noreferrer" aria-label="Learn more about SEO Optimization" class="service-link">
             Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -341,7 +363,7 @@
             <li>Email Campaigns</li>
             <li>Analytics & Reporting</li>
           </ul>
-          <a href="#contact" class="service-link">
+          <a href="#contact" aria-label="Learn more about Online Marketing" class="service-link">
             Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -367,7 +389,7 @@
           <div class="project-image">
             <div class="project-mockup laptop">
               <div class="mockup-screen">
-                <img src="images/LMS.png">
+                <img src="images/LMS.jpg" alt="e-Innovation Ecosystem learning management platform interface" width="900" height="561" loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -389,7 +411,7 @@
           <div class="project-image">
             <div class="project-mockup laptop">
               <div class="mockup-screen">
-                <img src="images/map.png">
+                <img src="images/map.jpg" alt="World map showing connections between Sarajevo, Switzerland and the USA" width="900" height="536" loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -413,7 +435,7 @@
           <div class="project-image">
             <div class="project-mockup laptop">
               <div class="mockup-screen">
-                <img src="images/erp.png">
+                <img src="images/erp.jpg" alt="Project and payroll management system dashboard" width="900" height="444" loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -437,10 +459,10 @@
         <p>
           Our <span data-years>5</span>-year history includes a broad portfolio in the healthcare, hospitality, and institutional sectors. We
           have delivered high-impact solutions for clients across 6 countries,
-          including <a href="https://seedentrepreneurship.org/" target="_blank">Seed Entrepreneurship</a>,<a
-            href="https://pivot.ba/" target="_blank"> Pivot</a>, <a href="https://ekvilibrijum.org/"
-            target="_blank">Equilibrium</a> , and <a href="https://greenapartmentsandvillas.com/bs/neum/"
-            target="_blank">Green Apartments and Villas</a>. </p>
+          including <a href="https://seedentrepreneurship.org/" target="_blank" rel="noopener noreferrer">Seed Entrepreneurship</a>,<a
+            href="https://pivot.ba/" target="_blank" rel="noopener noreferrer"> Pivot</a>, <a href="https://ekvilibrijum.org/"
+            target="_blank" rel="noopener noreferrer">Equilibrium</a> , and <a href="https://greenapartmentsandvillas.com/bs/neum/"
+            target="_blank" rel="noopener noreferrer">Green Apartments and Villas</a>. </p>
         <div class="portfolio-button">
           <a href="#contact" class="btn btn-primary">
             Contact Us for Our Full Portfolio
@@ -588,15 +610,17 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#" class="footer-logo">
+          <a href="#" class="footer-logo" aria-label="Aurora Borealis Dev, back to top">
             <div class="logo-icon">
               <svg viewBox="51.79636 350.8056 1066.53414 468.52560000000005" xmlns="http://www.w3.org/2000/svg"
-                data-name="Layer 1" id="Layer_1" style="max-height: 500px" width="1066.53414"
+                data-name="Layer 1" aria-hidden="true" focusable="false" style="max-height: 500px" width="1066.53414"
                 height="468.52560000000005">
                 <defs>
                   <style>
@@ -692,7 +716,7 @@
           </a>
           <p>Beyond Code.</p>
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/edimb/" aria-label="LinkedIn" target="_blank">
+            <a href="https://www.linkedin.com/in/edimb/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
