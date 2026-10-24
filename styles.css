@@ -28,7 +28,89 @@
   /* Effects */
   --radius: 0.75rem;
   --transition: 0.3s ease;
+
+  --nav-bg: rgba(10, 14, 26, 0.8);
+  --nav-bg-scrolled: rgba(10, 14, 26, 0.95);
+  --device-bg: #1a1a2e;
+  --device-border: #2a2a4a;
+  color-scheme: dark;
 }
+
+/* Light theme (dark is the default) */
+[data-theme="light"] {
+  --color-bg: #f8fafc;
+  --color-bg-light: #eef2f7;
+  --color-bg-card: #ffffff;
+  --color-text: #111827;
+  --color-text-muted: #4b5563;
+  --color-border: #d9dee7;
+  --aurora-cyan: #0891b2;
+  --aurora-green: #16a34a;
+  --aurora-violet: #7c3aed;
+  --aurora-pink: #db2777;
+  --nav-bg: rgba(248, 250, 252, 0.8);
+  --nav-bg-scrolled: rgba(248, 250, 252, 0.95);
+  --device-bg: #dbe2ec;
+  --device-border: #c3ccd9;
+  color-scheme: light;
+}
+
+[data-theme="light"] .nav-cta:hover,
+[data-theme="light"] .btn-primary:hover {
+  background: #0e7490;
+}
+
+[data-theme="light"] .nav-cta,
+[data-theme="light"] .mobile-cta,
+[data-theme="light"] .btn-primary {
+  color: #fff;
+}
+
+/* White logo lettering needs to go dark on light backgrounds */
+[data-theme="light"] svg .cls-1,
+[data-theme="light"] svg .cls-2 {
+  fill: #111827;
+}
+
+[data-theme="light"] .aurora-bg {
+  opacity: 0.4;
+}
+
+/* Theme toggle */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.theme-toggle:hover {
+  border-color: var(--aurora-cyan);
+  color: var(--aurora-cyan);
+}
+
+.theme-toggle svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.theme-toggle .icon-sun { display: block; }
+.theme-toggle .icon-moon { display: none; }
+[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+[data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 /* Reset & Base */
 *, *::before, *::after {
@@ -79,7 +161,8 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 14, 26, 0.8);
+  background: var(--nav-bg);
+  transition: background var(--transition);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -714,10 +797,10 @@ img {
   width: 100%;
   max-width: 400px;
   aspect-ratio: 16/10;
-  background: #1a1a2e;
+  background: var(--device-bg);
   border-radius: 0.75rem;
   padding: 0.5rem;
-  border: 2px solid #2a2a4a;
+  border: 2px solid var(--device-border);
 }
 
 .project-mockup.laptop::after {
@@ -728,17 +811,17 @@ img {
   transform: translateX(-50%);
   width: 120%;
   height: 0.75rem;
-  background: linear-gradient(to bottom, #2a2a4a, #1a1a2e);
+  background: linear-gradient(to bottom, var(--device-border), var(--device-bg));
   border-radius: 0 0 1rem 1rem;
 }
 
 .project-mockup.mobile {
   width: 120px;
   height: 240px;
-  background: #1a1a2e;
+  background: var(--device-bg);
   border-radius: 1.5rem;
   padding: 0.5rem;
-  border: 2px solid #2a2a4a;
+  border: 2px solid var(--device-border);
 }
 
 .mockup-screen {

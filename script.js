@@ -60,15 +60,32 @@ document.addEventListener('DOMContentLoaded', function() {
   const navHeader = document.querySelector('.nav-header');
   
   function updateNavbar() {
-    if (window.scrollY > 50) {
-      navHeader.style.background = 'rgba(10, 14, 26, 0.95)';
-    } else {
-      navHeader.style.background = 'rgba(10, 14, 26, 0.8)';
-    }
+    navHeader.style.background = window.scrollY > 50 ? 'var(--nav-bg-scrolled)' : '';
   }
   
   window.addEventListener('scroll', updateNavbar);
   updateNavbar();
+  
+  // ============================================
+  // Theme Toggle (persisted in a cookie)
+  // ============================================
+  const themeToggle = document.querySelector('.theme-toggle');
+  const root = document.documentElement;
+  
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    if (themeToggle) themeToggle.setAttribute('aria-pressed', theme === 'dark');
+  }
+  
+  applyTheme(root.getAttribute('data-theme') || 'dark');
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      document.cookie = `theme=${next}; max-age=${60 * 60 * 24 * 365}; path=/; SameSite=Lax`;
+    });
+  }
   
   // ============================================
   // Scroll Animations (Fade In)
