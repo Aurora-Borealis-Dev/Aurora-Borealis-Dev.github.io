@@ -72,11 +72,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // ============================================
   const FOUNDED_YEAR = 2021;
   const yearsInBusiness = new Date().getFullYear() - FOUNDED_YEAR;
-  const numberWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
-    'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'];
+  const numberWords = {
+    en: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
+      'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'],
+    bs: ['nula', 'jedna', 'dvije', 'tri', 'četiri', 'pet', 'šest', 'sedam', 'osam', 'devet', 'deset',
+      'jedanaest', 'dvanaest', 'trinaest', 'četrnaest', 'petnaest', 'šesnaest', 'sedamnaest', 'osamnaest', 'devetnaest', 'dvadeset']
+  };
+  const words = numberWords[document.documentElement.lang] || numberWords.en;
   
   document.querySelectorAll('[data-years]').forEach(el => {
-    const asWord = el.dataset.years === 'word' && numberWords[yearsInBusiness];
+    const asWord = el.dataset.years === 'word' && words[yearsInBusiness];
     el.textContent = asWord || yearsInBusiness;
   });
   
@@ -150,6 +155,16 @@ document.addEventListener('DOMContentLoaded', function() {
       document.cookie = `theme=${next}; max-age=${60 * 60 * 24 * 365}; path=/; SameSite=Lax`;
     });
   }
+  
+  // ============================================
+  // Language Toggle (each language is its own page; the choice is
+  // remembered in a cookie so the head script can redirect next visit)
+  // ============================================
+  document.querySelectorAll('.lang-option').forEach(option => {
+    option.addEventListener('click', function() {
+      document.cookie = `lang=${this.dataset.lang}; max-age=${60 * 60 * 24 * 365}; path=/; SameSite=Lax`;
+    });
+  });
   
   // ============================================
   // Scroll Animations (Fade In)

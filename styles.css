@@ -114,6 +114,46 @@
 [data-theme="light"] .theme-toggle .icon-sun { display: none; }
 [data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
+/* Language toggle: a single flag button linking to the other language */
+.lang-toggle {
+  display: flex;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  transition: all var(--transition);
+}
+
+.lang-option:hover {
+  border-color: var(--aurora-cyan);
+}
+
+html[lang="en"] .lang-option[data-lang="en"],
+html[lang="bs"] .lang-option[data-lang="bs"] {
+  display: none;
+}
+
+.lang-option .lang-flag {
+  display: block;
+  width: 1.125rem;
+  height: 0.75rem;
+  border-radius: 2px;
+  filter: saturate(0.5);
+  transition: filter var(--transition);
+}
+
+.lang-option:hover .lang-flag,
+.lang-option:focus-visible .lang-flag {
+  filter: none;
+}
+
 /* Reset & Base */
 *, *::before, *::after {
   box-sizing: border-box;

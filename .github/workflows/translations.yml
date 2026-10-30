@@ -1,0 +1,53 @@
+# Regenerates the translated pages (e.g. bs/index.html) from index.html and
+# translations/*.json.
+#   - Push to master: commits the regenerated pages if they changed, even when
+#     translations are missing (English is kept for those), then fails the
+#     run so the missing keys are visible. The site is always published.
+#   - Pull request: only checks; fails if pages are stale or keys are missing.
+# Edit translations in translations/<lang>.json, never in <lang>/index.html.
+name: Translations
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build translated pages
+        id: build
+        continue-on-error: true
+        run: node tools/build-translations.mjs
+
+      - name: Commit regenerated pages
+        if: github.event_name == 'push'
+        run: |
+          git add -A -- $(ls translations/*.json | sed 's|translations/\(.*\)\.json|\1/|')
+          if git diff --cached --quiet; then
+            echo "Translated pages already up to date"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore: regenerate translated pages"
+            git push
+          fi
+
+      - name: Check pages were up to date
+        if: github.event_name == 'pull_request'
+        run: git add -N . && git diff --exit-code
+
+      - name: Fail on missing translations
+        if: steps.build.outcome == 'failure'
+        run: |
+          echo "::error::Some translation keys are missing; see the 'Build translated pages' step. English text was used for them."
+          exit 1

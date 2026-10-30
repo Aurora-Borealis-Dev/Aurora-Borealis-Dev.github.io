@@ -3,26 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurora Borealis Dev | Web, SEO & Online Solutions</title>
-  <meta name="description"
+  <title data-i18n="meta.title">Aurora Borealis Dev | Web, SEO & Online Solutions</title>
+  <meta name="description" data-i18n-attr="content:meta.description"
     content="Aurora Borealis delivers world-class Web Development, SEO, and Online Marketing solutions to a global clientele.">
-  <meta name="keywords"
+  <meta name="keywords" data-i18n-attr="content:meta.keywords"
     content="web development, SEO, online marketing, digital agency, software solutions">
-  <meta property="og:title" content="Aurora Borealis Dev | Empowering Visionaries Globally">
-  <meta property="og:description" content="World-class Web, and SEO solutions for a global clientele.">
+  <meta property="og:title" data-i18n-attr="content:meta.og.title" content="Aurora Borealis Dev | Empowering Visionaries Globally">
+  <meta property="og:description" data-i18n-attr="content:meta.og.description" content="World-class Web, and SEO solutions for a global clientele.">
   <meta property="og:type" content="website">
+  <meta property="og:url" data-i18n-attr="content:meta.url" content="https://auroraborealis.dev/">
+  <meta property="og:locale" data-i18n-attr="content:meta.locale" content="en_US">
+  <meta property="og:locale:alternate" data-i18n-attr="content:meta.locale.alt" content="bs_BA">
+  <meta property="og:site_name" content="Aurora Borealis Dev">
+  <meta property="og:image" content="https://auroraborealis.dev/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" data-i18n-attr="content:meta.image.alt" content="Aurora Borealis Dev logo over a northern lights sky: Web, SEO, Online Marketing">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" data-i18n-attr="content:meta.og.title" content="Aurora Borealis Dev | Empowering Visionaries Globally">
+  <meta name="twitter:description" data-i18n-attr="content:meta.og.description" content="World-class Web, and SEO solutions for a global clientele.">
+  <meta name="twitter:image" content="https://auroraborealis.dev/images/og-image.jpg">
+  <link rel="canonical" data-i18n-attr="href:meta.url" href="https://auroraborealis.dev/">
+  <link rel="alternate" hreflang="en" href="https://auroraborealis.dev/">
+  <link rel="alternate" hreflang="bs" href="https://auroraborealis.dev/bs/">
+  <link rel="alternate" hreflang="hr" href="https://auroraborealis.dev/bs/">
+  <link rel="alternate" hreflang="sr-Latn" href="https://auroraborealis.dev/bs/">
+  <link rel="alternate" hreflang="x-default" href="https://auroraborealis.dev/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" type="image/png" href="images/aurora-borealis-dev-favicon.svg" sizes="32x32" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    // Apply saved theme before first paint to avoid a flash
+    // Apply saved theme before first paint to avoid a flash, and send visitors
+    // who picked another language to that version of the page
     (function () {
       var m = document.cookie.match(/(?:^|; )theme=(light|dark)/);
       document.documentElement.setAttribute('data-theme', m ? m[1] : 'dark');
+      var pages = { en: '/', bs: '/bs/' };
+      var l = document.cookie.match(/(?:^|; )lang=(en|bs)/);
+      if (l && l[1] !== document.documentElement.lang) location.replace(pages[l[1]] + location.hash);
     })();
   </script>
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json" data-i18n-json="description:meta.description">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://auroraborealis.dev/#organization",
+    "name": "Aurora Borealis Dev",
+    "url": "https://auroraborealis.dev/",
+    "description": "Aurora Borealis delivers world-class Web Development, SEO, and Online Marketing solutions to a global clientele.",
+    "logo": "https://auroraborealis.dev/images/aurora-borealis-dev-favicon.svg",
+    "image": "https://auroraborealis.dev/images/og-image.jpg",
+    "email": "info@auroraborealis.dev",
+    "foundingDate": "2021",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sarajevo",
+      "addressCountry": "BA"
+    },
+    "areaServed": ["BA", "HR", "AL", "CH", "NL", "US"],
+    "knowsAbout": ["Web Development", "SEO", "Online Marketing", "QA Automation", "Product Management"]
+  }
+  </script>
 </head>
 
 <body>
@@ -125,16 +168,43 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#work" data-i18n="nav.work">Work</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
 
       <div class="nav-actions">
-        <a href="#contact" class="nav-cta">Get Started</a>
+        <a href="#contact" class="nav-cta" data-i18n="nav.cta">Get Started</a>
 
-        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="true">
+        <!-- Only the flag of the other language is shown (see styles.css) -->
+        <div class="lang-toggle">
+          <a class="lang-option" href="/" hreflang="en" lang="en" data-lang="en" aria-label="English" title="English">
+            <svg class="lang-flag" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <clipPath id="flag-gb-clip"><path d="M30 15h30v15zv15H0zH0V0zV0h30z" /></clipPath>
+              <path d="M0 0v30h60V0z" fill="#012169" />
+              <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6" />
+              <path d="M0 0l60 30m0-30L0 30" clip-path="url(#flag-gb-clip)" stroke="#c8102e" stroke-width="4" />
+              <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10" />
+              <path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6" />
+            </svg>
+          </a>
+          <a class="lang-option" href="/bs/" hreflang="bs" lang="bs" data-lang="bs" aria-label="Bosanski" title="Bosanski">
+            <svg class="lang-flag" viewBox="0 0 16 8" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="16" height="8" fill="#002395" />
+              <path d="M4.24 0h8v8z" fill="#fecb00" />
+              <g id="flag-ba-stars" fill="#fff">
+                <path id="flag-ba-star" d="M2.353 .525 2.837-.868 3.321 .525 1.849-.39H3.825z" />
+                <use href="#flag-ba-star" x="1" y="1" />
+                <use href="#flag-ba-star" x="2" y="2" />
+              </g>
+              <use href="#flag-ba-stars" x="3" y="3" />
+              <use href="#flag-ba-stars" x="6" y="6" />
+            </svg>
+          </a>
+        </div>
+
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="true" data-i18n-attr="aria-label:theme.toggle">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="4" />
             <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
@@ -144,7 +214,7 @@
           </svg>
         </button>
 
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <button class="mobile-menu-btn" aria-label="Toggle menu" data-i18n-attr="aria-label:menu.toggle">
           <span></span>
           <span></span>
           <span></span>
@@ -155,12 +225,12 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu">
       <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#work" data-i18n="nav.work">Work</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
-      <a href="#contact" class="mobile-cta">Get Started</a>
+      <a href="#contact" class="mobile-cta" data-i18n="nav.cta">Get Started</a>
     </div>
   </header>
 
@@ -173,37 +243,37 @@
     </div>
 
     <div class="hero-content">
-      <p class="hero-tagline">Digital Excellence, Global Reach</p>
+      <p class="hero-tagline" data-i18n="hero.tagline">Digital Excellence, Global Reach</p>
       <h1 class="hero-title">
-        <span class="gradient-text">Beyond Code</span>
+        <span class="gradient-text" data-i18n="hero.title">Beyond Code</span>
       </h1>
-      <p class="hero-description">
+      <p class="hero-description" data-i18n="hero.description">
         For <span data-years>5</span> years, we have translated complex business logic into high-performance digital infrastructure. We don’t
         just build systems,
         <strong>we build relationships</strong> based on active listening and shared technical ownership.
       </p>
       <div class="hero-buttons">
         <a href="#contact" class="btn btn-primary">
-          Start Your Project
+          <span data-i18n="hero.cta">Start Your Project</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </a>
-        <a href="#work" class="btn btn-secondary">View Our Work</a>
+        <a href="#work" class="btn btn-secondary" data-i18n="hero.work">View Our Work</a>
       </div>
 
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-number">50+</span>
-          <span class="stat-label">Projects Delivered</span>
+          <span class="stat-label" data-i18n="stats.projects">Projects Delivered</span>
         </div>
         <div class="stat">
           <span class="stat-number">6</span>
-          <span class="stat-label">Countries Served</span>
+          <span class="stat-label" data-i18n="stats.countries">Countries Served</span>
         </div>
         <div class="stat">
           <span class="stat-number">98%</span>
-          <span class="stat-label">Client Satisfaction</span>
+          <span class="stat-label" data-i18n="stats.satisfaction">Client Satisfaction</span>
         </div>
       </div>
     </div>
@@ -212,7 +282,7 @@
   <!-- Client Showcase -->
   <section class="clients">
     <div class="container">
-      <p class="section-subtitle">Trusted by innovative companies worldwide</p>
+      <p class="section-subtitle" data-i18n="clients.subtitle">Trusted by innovative companies worldwide</p>
 
       <div class="client-ticker">
         <div class="ticker-track">
@@ -233,31 +303,31 @@
       </div>
 
       <div class="global-reach">
-        <h3>Global Reach</h3>
+        <h3 data-i18n="clients.reach">Global Reach</h3>
         <div class="country-flags">
           <div class="country">
             <span class="flag">🇺🇸</span>
-            <span>USA</span>
+            <span data-i18n="country.usa">USA</span>
           </div>
           <div class="country">
             <span class="flag">🇨🇭</span>
-            <span>Switzerland</span>
+            <span data-i18n="country.switzerland">Switzerland</span>
           </div>
           <div class="country">
             <span class="flag">🇳🇱</span>
-            <span>Netherlands</span>
+            <span data-i18n="country.netherlands">Netherlands</span>
           </div>
           <div class="country">
             <span class="flag">🇦🇱</span>
-            <span>Albania</span>
+            <span data-i18n="country.albania">Albania</span>
           </div>
           <div class="country">
             <span class="flag">🇭🇷</span>
-            <span>Croatia</span>
+            <span data-i18n="country.croatia">Croatia</span>
           </div>
             <div class="country">
                 <span class="flag">🇧🇦</span>
-                <span>Bosnia and Herzegovina</span>
+                <span data-i18n="country.bih">Bosnia and Herzegovina</span>
             </div>
         </div>
       </div>
@@ -267,9 +337,9 @@
   <!-- Services Section -->
   <section id="services" class="services">
     <div class="container">
-      <p class="section-subtitle">What We Do</p>
-      <h2 class="section-title">Services That Drive Growth</h2>
-      <p class="section-description">
+      <p class="section-subtitle" data-i18n="services.subtitle">What We Do</p>
+      <h2 class="section-title" data-i18n="services.title">Services That Drive Growth</h2>
+      <p class="section-description" data-i18n="services.description">
         From concept to launch, we provide end-to-end digital solutions tailored to your unique needs.
       </p>
 
@@ -282,17 +352,17 @@
               <path d="M8 21h8M12 17v4" />
             </svg>
           </div>
-          <h3>Web Development</h3>
-          <p>Custom websites and web applications built with modern technologies. Responsive, fast, and scalable
+          <h3 data-i18n="web.title">Web Development</h3>
+          <p data-i18n="web.description">Custom websites and web applications built with modern technologies. Responsive, fast, and scalable
             solutions.</p>
           <ul class="service-features">
-            <li>Custom Web Applications</li>
-            <li>E-commerce Solutions</li>
-            <li>CMS Development</li>
-            <li>API Integration</li>
+            <li data-i18n="web.f1">Custom Web Applications</li>
+            <li data-i18n="web.f2">E-commerce Solutions</li>
+            <li data-i18n="web.f3">CMS Development</li>
+            <li data-i18n="web.f4">API Integration</li>
           </ul>
           <a href="#contact" class="service-link">
-            Learn More
+            <span data-i18n="services.more">Learn More</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -309,16 +379,16 @@
               <path d="M21 21l-4.35-4.35" />
             </svg>
           </div>
-          <h3>SEO Optimization</h3>
-          <p>Data-driven SEO strategies that improve your visibility and drive organic traffic to your business.</p>
+          <h3 data-i18n="seo.title">SEO Optimization</h3>
+          <p data-i18n="seo.description">Data-driven SEO strategies that improve your visibility and drive organic traffic to your business.</p>
           <ul class="service-features">
-            <li>Technical SEO Audit</li>
-            <li>Keyword Research</li>
-            <li>Content Strategy</li>
-            <li>Link Building</li>
+            <li data-i18n="seo.f1">Technical SEO Audit</li>
+            <li data-i18n="seo.f2">Keyword Research</li>
+            <li data-i18n="seo.f3">Content Strategy</li>
+            <li data-i18n="seo.f4">Link Building</li>
           </ul>
           <a href="https://seo.auroraborealis.dev/" target="_blank" class="service-link">
-            Learn More
+            <span data-i18n="services.more">Learn More</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -332,17 +402,17 @@
               <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
             </svg>
           </div>
-          <h3>Online Marketing</h3>
-          <p>Comprehensive digital marketing campaigns that connect your brand with the right audience at the right
+          <h3 data-i18n="marketing.title">Online Marketing</h3>
+          <p data-i18n="marketing.description">Comprehensive digital marketing campaigns that connect your brand with the right audience at the right
             time.</p>
           <ul class="service-features">
-            <li>PPC Advertising</li>
-            <li>Social Media Marketing</li>
-            <li>Email Campaigns</li>
-            <li>Analytics & Reporting</li>
+            <li data-i18n="marketing.f1">PPC Advertising</li>
+            <li data-i18n="marketing.f2">Social Media Marketing</li>
+            <li data-i18n="marketing.f3">Email Campaigns</li>
+            <li data-i18n="marketing.f4">Analytics & Reporting</li>
           </ul>
           <a href="#contact" class="service-link">
-            Learn More
+            <span data-i18n="services.more">Learn More</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -355,9 +425,9 @@
   <!-- Case Studies / Work Section -->
   <section id="work" class="work">
     <div class="container">
-      <p class="section-subtitle">Our Work</p>
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-description">
+      <p class="section-subtitle" data-i18n="work.subtitle">Our Work</p>
+      <h2 class="section-title" data-i18n="work.title">Featured Projects</h2>
+      <p class="section-description" data-i18n="work.description">
         Explore some of our recent work and see how we've helped businesses achieve their digital goals.
       </p>
 
@@ -367,19 +437,19 @@
           <div class="project-image">
             <div class="project-mockup laptop">
               <div class="mockup-screen">
-                <img src="images/LMS.png">
+                <img src="images/LMS.png" alt="e-Innovation Ecosystem LMS dashboard for healthcare professionals" data-i18n-attr="alt:p1.image.alt" width="1350" height="842" loading="lazy">
               </div>
             </div>
           </div>
           <div class="project-info">
-            <span class="project-category">LMS Platform</span>
+            <span class="project-category" data-i18n="p1.category">LMS Platform</span>
             <h3>e-Innovation Ecosystem</h3>
-            <p>A sophisticated Learning Management System (LMS) designed for healthcare professionals to enhance their
+            <p data-i18n="p1.description">A sophisticated Learning Management System (LMS) designed for healthcare professionals to enhance their
               skills, earn certifications, and stay connected with the latest medical innovations.</p>
             
             <div class="project-tags">
               <span>LMS</span>
-              <span>Healthcare</span>
+              <span data-i18n="p1.tag2">Healthcare</span>
             </div>
           </div>
         </div>
@@ -389,21 +459,21 @@
           <div class="project-image">
             <div class="project-mockup laptop">
               <div class="mockup-screen">
-                <img src="images/map.png">
+                <img src="images/map.png" alt="World map of technical partnerships with US startups and global media companies" data-i18n-attr="alt:p2.image.alt" width="1063" height="634" loading="lazy">
               </div>
             </div>
           </div>
           <div class="project-info">
-            <span class="project-category">Product Management & QA</span>
-            <h3>Strategic Technical Partnerships</h3>
-            <p>Acting as the dedicated technical engine for US startups and global media leaders. We move beyond simple
+            <span class="project-category" data-i18n="p2.category">Product Management & QA</span>
+            <h3 data-i18n="p2.title">Strategic Technical Partnerships</h3>
+            <p data-i18n="p2.description">Acting as the dedicated technical engine for US startups and global media leaders. We move beyond simple
               development, taking direct Product Ownership for innovators like Mango & Lola and delivering Enterprise QA
               Automation for networks such as A&E Networks.</p>
           
             <div class="project-tags">
-              <span>Product Strategy</span>
-              <span>QA Automation</span>
-              <span>Agile Management</span>
+              <span data-i18n="p2.tag1">Product Strategy</span>
+              <span data-i18n="p2.tag2">QA Automation</span>
+              <span data-i18n="p2.tag3">Agile Management</span>
             </div>
           </div>
         </div>
@@ -413,28 +483,28 @@
           <div class="project-image">
             <div class="project-mockup laptop">
               <div class="mockup-screen">
-                <img src="images/erp.png">
+                <img src="images/erp.png" alt="Project and payroll management ERP dashboard" data-i18n-attr="alt:p3.image.alt" width="1457" height="720" loading="lazy">
               </div>
             </div>
           </div>
           <div class="project-info">
-            <span class="project-category">Enterprise operations</span>
-            <h3>Project and Payroll Management System</h3>
-            <p>A mission-critical ERP ecosystem engineered to manage large-scale industrial operations.
+            <span class="project-category" data-i18n="p3.category">Enterprise operations</span>
+            <h3 data-i18n="p3.title">Project and Payroll Management System</h3>
+            <p data-i18n="p3.description">A mission-critical ERP ecosystem engineered to manage large-scale industrial operations.
               This custom platform automates complex business logic, from real-time field resource tracking and salary
               data processing to advanced project profitability analytics.</p>
       
             <div class="project-tags">
-              <span>Finances</span>
+              <span data-i18n="p3.tag1">Finances</span>
               <span>Laravel</span>
-              <span>Automation</span>
+              <span data-i18n="p3.tag3">Automation</span>
             </div>
           </div>
         </div>
       </div>
 
       <div class="portfolio-cta">
-        <p>
+        <p data-i18n="work.portfolio">
           Our <span data-years>5</span>-year history includes a broad portfolio in the healthcare, hospitality, and institutional sectors. We
           have delivered high-impact solutions for clients across 6 countries,
           including <a href="https://seedentrepreneurship.org/" target="_blank">Seed Entrepreneurship</a>,<a
@@ -442,7 +512,7 @@
             target="_blank">Equilibrium</a> , and <a href="https://greenapartmentsandvillas.com/bs/neum/"
             target="_blank">Green Apartments and Villas</a>. </p>
         <div class="portfolio-button">
-          <a href="#contact" class="btn btn-primary">
+          <a href="#contact" class="btn btn-primary" data-i18n="work.cta">
             Contact Us for Our Full Portfolio
           </a>
         </div>
@@ -455,14 +525,14 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-content">
-          <p class="section-subtitle">About Us</p>
-          <h2 class="section-title">We Build Digital Experiences That Matter</h2>
-          <p>
+          <p class="section-subtitle" data-i18n="about.subtitle">About Us</p>
+          <h2 class="section-title" data-i18n="about.title">We Build Digital Experiences That Matter</h2>
+          <p data-i18n="about.p1">
             Founded in 2021, Aurora Borealis Dev was created to bridge the gap between Sarajevo's top-tier technical
             talent and global opportunities. Over the last <span data-years="word">five</span> years, we have evolved from a small team into a trusted
             partner for clients across six countries.
           </p>
-          <p>
+          <p data-i18n="about.p2">
             We don't believe in one-size-fits-all solutions; we believe in ownership. Whether we are developing an
             educational platform for healthcare workers or managing the technical roadmap for a US startup, our approach
             remains the same: transparent communication, agile execution, and a commitment to quality.
@@ -475,8 +545,8 @@
                 </svg>
               </div>
               <div>
-                <h4>Quality First</h4>
-                <p>Every line of code is crafted with precision</p>
+                <h4 data-i18n="value.quality.title">Quality First</h4>
+                <p data-i18n="value.quality.text">Every line of code is crafted with precision</p>
               </div>
             </div>
             <div class="value">
@@ -488,8 +558,8 @@
                 </svg>
               </div>
               <div>
-                <h4>Global Mindset</h4>
-                <p>We understand diverse markets and cultures</p>
+                <h4 data-i18n="value.global.title">Global Mindset</h4>
+                <p data-i18n="value.global.text">We understand diverse markets and cultures</p>
               </div>
             </div>
             <div class="value">
@@ -501,8 +571,8 @@
                 </svg>
               </div>
               <div>
-                <h4>Client Partnership</h4>
-                <p>Your success is our success</p>
+                <h4 data-i18n="value.partner.title">Client Partnership</h4>
+                <p data-i18n="value.partner.text">Your success is our success</p>
               </div>
             </div>
           </div>
@@ -512,7 +582,7 @@
             <div class="aurora-orb"></div>
             <div class="team-stats">
               <p class="stat-number" data-years>5</p>
-              <p class="stat-label">Years on the Market</p>
+              <p class="stat-label" data-i18n="about.years">Years on the Market</p>
             </div>
           </div>
         </div>
@@ -525,9 +595,9 @@
     <div class="container">
       <div class="contact-grid">
         <div class="contact-info">
-          <p class="section-subtitle">Get In Touch</p>
-          <h2 class="section-title">Let's Build Something Amazing</h2>
-          <p>
+          <p class="section-subtitle" data-i18n="contact.subtitle">Get In Touch</p>
+          <h2 class="section-title" data-i18n="contact.title">Let's Build Something Amazing</h2>
+          <p data-i18n="contact.description">
             Ready to transform your digital presence? We'd love to hear about your project
             and discuss how we can help bring your vision to life.
           </p>
@@ -540,7 +610,7 @@
                 </svg>
               </div>
               <div>
-                <h4>Email</h4>
+                <h4 data-i18n="contact.email">Email</h4>
                 <a href="mailto:info@auroraborealis.dev">info@auroraborealis.dev</a>
               </div>
             </div>
@@ -552,9 +622,9 @@
                 </svg>
               </div>
               <div>
-                <h4>Location</h4>
-                <p>Sarajevo, Bosnia & Herzegovina</p>
-                <p class="small">Serving clients globally</p>
+                <h4 data-i18n="contact.location">Location</h4>
+                <p data-i18n="contact.city">Sarajevo, Bosnia & Herzegovina</p>
+                <p class="small" data-i18n="contact.global">Serving clients globally</p>
               </div>
             </div>
           </div>
@@ -565,14 +635,14 @@
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 <path d="M9 12l2 2 4-4" />
               </svg>
-              <span>Secure & Confidential</span>
+              <span data-i18n="contact.secure">Secure & Confidential</span>
             </div>
             <div class="badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
               </svg>
-              <span>24h Response Time</span>
+              <span data-i18n="contact.response">24h Response Time</span>
             </div>
           </div>
         </div>
@@ -690,7 +760,7 @@
 
             </div>
           </a>
-          <p>Beyond Code.</p>
+          <p data-i18n="footer.tagline">Beyond Code.</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/edimb/" aria-label="LinkedIn" target="_blank">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -703,38 +773,38 @@
         </div>
 
         <div class="footer-links">
-          <h4>Services</h4>
+          <h4 data-i18n="footer.services">Services</h4>
           <ul>
-            <li><a href="#services">Web Development</a></li>
-            <li><a href="#services">SEO Optimization</a></li>
-            <li><a href="#services">Online Marketing</a></li>
+            <li><a href="#services" data-i18n="web.title">Web Development</a></li>
+            <li><a href="#services" data-i18n="seo.title">SEO Optimization</a></li>
+            <li><a href="#services" data-i18n="marketing.title">Online Marketing</a></li>
           </ul>
         </div>
 
         <div class="footer-links">
-          <h4>Company</h4>
+          <h4 data-i18n="footer.company">Company</h4>
           <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#work">Our Work</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about" data-i18n="about.subtitle">About Us</a></li>
+            <li><a href="#work" data-i18n="work.subtitle">Our Work</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
 
         <div class="footer-links">
-          <h4>Global Presence</h4>
+          <h4 data-i18n="footer.presence">Global Presence</h4>
           <ul class="location-list">
-            <li>United States</li>
-            <li>Switzerland</li>
-            <li>Netherlands</li>
-            <li>Bosnia & Herzegovina</li>
-            <li>Albania</li>
-            <li>Croatia</li>
+            <li data-i18n="footer.us">United States</li>
+            <li data-i18n="country.switzerland">Switzerland</li>
+            <li data-i18n="country.netherlands">Netherlands</li>
+            <li data-i18n="footer.bih">Bosnia & Herzegovina</li>
+            <li data-i18n="country.albania">Albania</li>
+            <li data-i18n="country.croatia">Croatia</li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Aurora Borealis Dev. All rights reserved.</p>
+        <p data-i18n="footer.copyright">&copy; 2026 Aurora Borealis Dev. All rights reserved.</p>
       </div>
     </div>
   </footer>
