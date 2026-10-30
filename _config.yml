@@ -1,0 +1,7 @@
+# GitHub Pages (Jekyll) config: keep repo-only files off the live site
+exclude:
+  - AGENTS.md
+  - CLAUDE.md
+  - tools/
+  - translations/
+  - text/
