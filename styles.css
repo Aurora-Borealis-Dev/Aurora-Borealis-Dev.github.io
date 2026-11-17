@@ -456,6 +456,68 @@ img {
   }
 }
 
+/* WebGL aurora (script.js). When it runs it replaces the CSS gradient version
+   above, which stays as the fallback for browsers without WebGL. */
+.aurora-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: aurora-canvas-in 1.6s ease-out forwards;
+}
+
+@keyframes aurora-canvas-in {
+  to { opacity: 0.85; }
+}
+
+.aurora-live::before,
+.aurora-live .aurora-layer {
+  display: none;
+}
+
+/* ::after keeps the pointer glow and swaps the roaming dark patches of the CSS
+   aurora for one fixed shade behind the hero text, so copy stays readable
+   when a bright curtain passes behind it */
+.aurora-live::after {
+  background:
+    radial-gradient(350px circle at var(--mx, 50%) var(--my, 40%), rgba(34, 211, 238, 0.07), transparent 60%),
+    radial-gradient(ellipse 46rem 16rem at 50% 46%, var(--aurora-base) 20%, transparent 100%);
+  animation: none;
+  opacity: 0.6;
+}
+
+/* The canvas already draws a light-theme wash, so skip the extra dimming */
+[data-theme="light"] .aurora-bg.aurora-live {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-canvas {
+    animation: none;
+    opacity: 0.85;
+  }
+}
+
+/* Title drawn as particles (script.js): above the aurora, below the hero
+   content so drifting dots never cross buttons or copy */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-title .gradient-text {
+  transition: opacity 0.5s ease;
+}
+
+.hero-particles-on .hero-title .gradient-text {
+  opacity: 0;
+}
+
 .aurora-layer {
   position: absolute;
   width: 150%;
