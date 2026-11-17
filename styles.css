@@ -720,7 +720,7 @@ img {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text-muted);
-  opacity: 0.5;
+  opacity: 0.7;
   white-space: nowrap;
 }
 
@@ -753,7 +753,7 @@ img {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text-muted);
-  opacity: 0.5;
+  opacity: 0.7;
   white-space: nowrap;
 }
 
@@ -780,7 +780,7 @@ img {
   text-align: center;
 }
 
-.global-reach h3 {
+.global-reach h2 {
   font-size: 1rem;
   color: var(--color-text-muted);
   margin-bottom: 1.5rem;
@@ -1236,7 +1236,7 @@ img {
   height: 1.25rem;
 }
 
-.value h4 {
+.value h3 {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
@@ -1356,7 +1356,7 @@ img {
   height: 1.25rem;
 }
 
-.contact-item h4 {
+.contact-item h3 {
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
@@ -1507,7 +1507,7 @@ img {
   height: 1rem;
 }
 
-.footer-links h4 {
+.footer-links .footer-heading {
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1rem;
